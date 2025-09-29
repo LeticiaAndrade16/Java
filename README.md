@@ -9,4 +9,4 @@ Aqui vou armazenar exercícios, pequenos projetos que estou utilizando para apre
 - Projetos simples para praticar
 
 🛠️ Tecnologias
-IDE: IntelliJ IDEA
+- IDE: IntelliJ IDEA
