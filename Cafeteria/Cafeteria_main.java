@@ -1,7 +1,6 @@
 package Cafeteria;
 
 import Cafeteria.cafeteria.*;
-
 import java.util.Scanner;
 
 public class Cafeteria_main {
@@ -47,8 +46,9 @@ public class Cafeteria_main {
     static void fazerPedido(Cafe[] cardapio) {
 
         Pedido pedido = new Pedido();
+        boolean adicionarMais = true;
 
-        while (true) {
+        while (adicionarMais) {
 
             System.out.println("\n========== FAZER PEDIDO ==========");
             for (int i = 0; i < cardapio.length; i++) {
@@ -85,6 +85,8 @@ public class Cafeteria_main {
                 if (produto.estaEsgotado()) {
                     System.out.println("Atenção: " + produto.getNome() + " acabou no estoque!");
                 }
+
+                adicionarMais = perguntarSimNao("\nDeseja adicionar mais algum item?");
             } else {
                 System.out.println("Estoque insuficiente! Disponível: " + produto.getEstoque());
             }
@@ -118,6 +120,21 @@ public class Cafeteria_main {
         System.out.println("\n========== ESTOQUE ==========");
         for (Cafe c : cardapio) {
             System.out.println(c.getNome() + ": " + c.getEstoque());
+        }
+    }
+
+    static boolean perguntarSimNao(String pergunta) {
+        while (true) {
+            System.out.println(pergunta);
+            System.out.println("1 - Sim");
+            System.out.println("2 - Não, finalizar pedido");
+            int resposta = lerInt("Escolha: ");
+            if (resposta == 1) {
+                return true;
+            } else if (resposta == 2) {
+                return false;
+            }
+            System.out.println("Opção inválida!");
         }
     }
 
